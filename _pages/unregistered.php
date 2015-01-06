@@ -7,12 +7,15 @@
 				<header>
 					<h3>Si ya tienes una cuenta introduce tus datos aquí.</h3>
 				</header>
-				<form method="post" action="index.php">
-					<label for="nocontroltxt">No. Control:</label>
+				<form method="post" action="index.php" onsubmit="return validaAlumno();">
+					<label for="nocontrol">No. Control:</label>
 					<input type="text" placeholder="Número de control" id="nocontrol" name="nocontrol">
-					<label for="curptxt">C.U.R.P.:</label>
+					<span id="err_nocontrol" class="error"></span>
+					<br>
+					<label for="curp">C.U.R.P.:</label>
 					<input type="text" placeholder="Ingresa tu CURP" id="curp" name="curp">
-					<br><br>
+					<span id="err_curp" class="error"></span>
+					<br>
 					<input type="submit" value="Entrar" id="submit_loggin">
 				</form>
 			</section>				
@@ -28,13 +31,20 @@
 				<form method="post" action="index.php">
 					<label for="nocontroltxt">No. Control:</label>
 					<input type="text" placeholder="Número de control" id="nocontroltxt" name="nocontroltxt">
+					<span id="err_nocontroltxt" class="error"></span>
+					<br>
 					<label for="emailtxt">E-mail:</label>
 					<input type="email" placeholder="usuario@example.com" id="emailtxt" name="emailtxt">
+					<span id="err_emailtxt" class="error"></span>
+					<br>
 					<label for="edadtxt">Edad:</label>
 					<input type="text" placeholder="Ingresa tu edad" id="edadtxt" name="edadtxt">
+					<span id="err_edadtxt" class="error"></span>
+					<br>
 					<label for="curptxt">C.U.R.P.:</label>
 					<input type="text" placeholder="Ingresa tu CURP" id="curptxt" name="curptxt">
-					<br><br>
+					<span id="err_curptxt" class="error"></span>
+					<br>
 					<input type="submit" value="Registrar" id="submit_signup">
 				</form>						
 			</section>

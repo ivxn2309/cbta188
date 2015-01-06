@@ -43,6 +43,16 @@ function loadContent(banner, main, user){
 	loadPartially(main, "#main", user);
 }
 
+function getRequestObject() {
+	if (window.ActiveXObject) {
+		return(new ActiveXObject("Microsoft.XMLHTTP"));
+	} else if (window.XMLHttpRequest) {
+		return(new XMLHttpRequest());
+	} else {
+		return(null);
+	}
+}
+
 // Vaildacion de credenciales ============================
 function validaDocente() {
 	var txtUser = document.getElementById("docente_user");
@@ -56,7 +66,7 @@ function validaDocente() {
 		errUser.innerHTML = "Este campo no permite espacios en blanco";
 		success = false;
 	}
-	// Si hay espacios en el campo de usuario
+	// Si no cumple con el formato valido
 	else if(!(/@cbta188/.test(txtUser.value))){
 		errUser.innerHTML = "El usuario no es correcto";
 		success = false;
@@ -81,3 +91,43 @@ function validaDocente() {
 
 	return success;
 }
+
+function validaAlumno() {
+	var txtControl = document.getElementById("nocontrol");
+	var txtCurp = document.getElementById("curp");
+	var errControl = document.getElementById("err_nocontrol");
+	var errCurp = document.getElementById("err_curp");
+	var success = true;
+
+	// Si hay espacios en el campo de numero de control
+	if(/\s/.test(txtControl.value)){
+		errControl.innerHTML = "Este campo no permite espacios en blanco";
+		success = false;
+	}
+	// Si esta vacio el campo de numero de control
+	else if (txtControl.value.trim().length == 0){
+		errControl.innerHTML = "Este campo no puede quedar vacío";
+		success = false;
+	}
+	else{
+		errControl.innerHTML = "";
+	}
+
+	// Si hay espacios en la curp
+	if(/\s/.test(txtCurp.value)){
+		errCurp.innerHTML = "Este campo no permite espacios en blanco";
+		success = false;
+	}
+	// Si esta vacio el campo de curp
+	else if (txtCurp.value.trim().length == 0){
+		errCurp.innerHTML = "Este campo no puede quedar vacío";
+		success = false;
+	}
+	else{
+		errCurp.innerHTML = "";
+	}
+
+	return success;
+}
+
+// 

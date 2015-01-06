@@ -19,7 +19,7 @@ else if(isset($_SESSION['nocontrol']) && isset($_SESSION['curp']) && isset($_SES
 }
 
 //Si ya ha sido inicializada una sesion como docente
-else if(isset($_SESSION['doc_user']) && isset($_SESSION['doc_pass']) && isset($_SESSION['doc_cbta188'])) {
+else if(isset($_SESSION['doc_user']) && isset($_SESSION['doc_name']) && isset($_SESSION['doc_cbta188'])) {
 	$isUser = 2;
 }
 
@@ -39,10 +39,16 @@ else if (isset($_POST['nocontrol']) && isset($_POST['nocontrol'])){
 		$result = mysql_fetch_row($result);
 		$email = $result[0];
 
+		$query = "SELECT nombre FROM alumnodata WHERE no_control='$nocontrol'";
+		$result = mysql_query($query);
+		$result = mysql_fetch_row($result);
+		$nombre = $result[0];
+
 		//Los datos de sesion son almacenados
 		$_SESSION["nocontrol"] = $nocontrol;
 		$_SESSION["curp"] = $curp;
 		$_SESSION["email"] = $email;
+		$_SESSION["nombre"] = $nombre;
 		$_SESSION["cbta188"] = 1;
 		$isUser = 1;
 	}
@@ -69,9 +75,9 @@ else if (isset($_POST['docente_user']) && isset($_POST['docente_pass'])){
 		$name = $result[1];
 
 		//Los datos de sesion son almacenados
-		$_SESSION["user"] = $user;
-		$_SESSION["name"] = $name;
-		$_SESSION["cbta188"] = 1;
+		$_SESSION["doc_user"] = $user;
+		$_SESSION["doc_name"] = $name;
+		$_SESSION["doc_cbta188"] = 1;
 		$isUser = 2;
 	}
 	else {

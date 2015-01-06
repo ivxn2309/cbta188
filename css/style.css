@@ -751,6 +751,7 @@
 				#header nav ul li.submenu > a:before {
 					content: '\f107';
 					margin-right: 0.65em;
+					border-radius: 4px;
 				}
 
 				#header nav ul li.active > a, #header nav ul li:hover > a {
@@ -759,7 +760,8 @@
 					-o-transition: all 0.2s ease-in-out;
 					-ms-transition: all 0.2s ease-in-out;
 					transition: all 0.2s ease-in-out;
-					background: rgba(188, 202, 206, 0.15);
+					background: rgba(0, 0, 0, 0.55);
+					border-radius: 8px;
 				}
 
 				#header nav ul li.current > a {
@@ -769,9 +771,9 @@
 		#header.reveal {
 			background: black;
 			color: white;
+			box-shadow:         0px 3px 5px 0px #000;  /* Opera 10.5, IE 9, Firefox 4+, Chrome 6+, iOS 5 */
 			-webkit-box-shadow: 0px 3px 5px 0px #000;  /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
   			-moz-box-shadow:    0px 3px 5px 0px #000;  /* Firefox 3.5 - 3.6 */
- 			box-shadow:         0px 3px 5px 0px #000;  /* Opera 10.5, IE 9, Firefox 4+, Chrome 6+, iOS 5 */
 			-moz-animation: reveal-header 0.5s;
 			-webkit-animation: reveal-header 0.5s;
 			-o-animation: reveal-header 0.5s;
@@ -805,12 +807,13 @@
 
 	.dropotron {
 		background: #fff;
-		box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.075);
+		box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.075);
 		line-height: 2.25em;
 		min-width: 13em;
 		padding: 1em 0;
 		text-transform: uppercase;
-		margin-top: calc(-1em + 1px);
+		border-radius: 6px;
+		margin-top: calc(1em - 1px);
 	}
 
 		.dropotron.level-0 {
@@ -846,7 +849,7 @@
 			}
 
 			.dropotron > li:hover > a {
-				background: #009000;
+				background: #000000;
 				color: white;
 			}
 
@@ -1199,6 +1202,7 @@
 }
 
 .error {
+	font-family: FontAwesome;
 	font-size: 0.7em;
 	color: red;
 }
