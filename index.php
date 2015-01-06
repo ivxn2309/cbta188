@@ -48,7 +48,7 @@
 	</header>
 
 	<div id="content">
-		
+		<?php if($loginAttempt) echo "Se proporcionó una credencial incorrecta"; ?>
 		<section id="banner">
 			<?php include "_pages/banner.php"; ?>
 		</section>

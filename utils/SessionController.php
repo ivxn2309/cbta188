@@ -2,7 +2,7 @@
 session_start();
 
 //La variable que indica si es usuario se inicia en falso 
-$isUser = false;
+$isUser = 0;
 
 //al igual que la que indica si ya se intento entrar
 $loginAttempt = false;
@@ -13,9 +13,14 @@ if(isset($_POST['salir'])){
 	session_destroy();
 }
 
-//Si ya ha sido inicializada una sesion
+//Si ya ha sido inicializada una sesion como alumno
 else if(isset($_SESSION['nocontrol']) && isset($_SESSION['curp']) && isset($_SESSION['cbta188'])) {
-	$isUser = true;
+	$isUser = 1;
+}
+
+//Si ya ha sido inicializada una sesion como docente
+else if(isset($_SESSION['doc_user']) && isset($_SESSION['doc_pass']) && isset($_SESSION['doc_cbta188'])) {
+	$isUser = 2;
 }
 
 //Si el usuario quiere identificarse como alumno
@@ -39,11 +44,38 @@ else if (isset($_POST['nocontrol']) && isset($_POST['nocontrol'])){
 		$_SESSION["curp"] = $curp;
 		$_SESSION["email"] = $email;
 		$_SESSION["cbta188"] = 1;
-		$isUser = true;
+		$isUser = 1;
 	}
 	else {
 		$loginAttempt = true;
 	}
+}
 
+//Si el usuario quiere identificarse como docente
+else if (isset($_POST['docente_user']) && isset($_POST['docente_pass'])){
+	$user = $_POST["docente_user"];
+	$pass = $_POST["docente_pass"];
+
+	//Checamos si esta en la base de datos
+	$query = "SELECT id_docente FROM profesor WHERE UPPER(id_docente)=UPPER(TRIM('$user')) and password='$pass'";
+	$result = query_to_array($query);
+
+	if (!is_null($result)){
+		//Se guardan los datos correspondientes a la sesion
+		$query = "SELECT id_docente, nombre FROM profesor WHERE UPPER(id_docente)=UPPER(TRIM('$user'))";
+		$result = mysql_query($query);
+		$result = mysql_fetch_row($result);
+		$user = $result[0];
+		$name = $result[1];
+
+		//Los datos de sesion son almacenados
+		$_SESSION["user"] = $user;
+		$_SESSION["name"] = $name;
+		$_SESSION["cbta188"] = 1;
+		$isUser = 2;
+	}
+	else {
+		$loginAttempt = true;
+	}
 }
 ?>
