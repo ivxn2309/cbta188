@@ -1,4 +1,4 @@
-<section class="wrapper style1 container special-alt" style="width:100%;">
+<section class="wrapper style1 container special-alt shadow1" style="width:100%;">
 	<center><h2>Conoce nuestras instalaciones</h2></center>
 	<div class="row">
 		<div class="12u">

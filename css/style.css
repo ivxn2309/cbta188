@@ -592,7 +592,7 @@
 		}
 
 		.wrapper.style2 {
-			background-color: #009000;
+			background-color: #008000;
 			background-image: url("images/light-bl.svg"), url("images/light-br.svg");
 			background-position: bottom left, bottom right;
 			background-repeat: no-repeat, no-repeat;
@@ -767,6 +767,11 @@
 				}
 
 		#header.reveal {
+			background: black;
+			color: white;
+			-webkit-box-shadow: 0px 3px 5px 0px #000;  /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
+  			-moz-box-shadow:    0px 3px 5px 0px #000;  /* Firefox 3.5 - 3.6 */
+ 			box-shadow:         0px 3px 5px 0px #000;  /* Opera 10.5, IE 9, Firefox 4+, Chrome 6+, iOS 5 */
 			-moz-animation: reveal-header 0.5s;
 			-webkit-animation: reveal-header 0.5s;
 			-o-animation: reveal-header 0.5s;
@@ -1162,6 +1167,36 @@
 	.slider { position: relative; overflow: auto; }
 	    .slider li { list-style: none; }
 	        .slider ul li { float: left; }
+
+.shadow0 {
+	-webkit-box-shadow: 0px -3px 5px 0px #010101;  /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
+	-moz-box-shadow:    0px -3px 5px 0px #010101;  /* Firefox 3.5 - 3.6 */
+	box-shadow:         0px -3px 5px 0px #010101;  /* Opera 10.5, IE 9, Firefox 4+, Chrome 6+, iOS 5 */
+}
+
+.shadow1 {
+	-webkit-box-shadow: 0px 3px 5px 0px #010101;  /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
+	-moz-box-shadow:    0px 3px 5px 0px #010101;  /* Firefox 3.5 - 3.6 */
+	box-shadow:         0px 3px 5px 0px #010101;  /* Opera 10.5, IE 9, Firefox 4+, Chrome 6+, iOS 5 */
+}
+
+.shadow2 {
+	-webkit-box-shadow: 3px 0px 5px 0px #010101;  /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
+	-moz-box-shadow:    3px 0px 5px 0px #010101;  /* Firefox 3.5 - 3.6 */
+	box-shadow:         3px 0px 5px 0px #010101;  /* Opera 10.5, IE 9, Firefox 4+, Chrome 6+, iOS 5 */
+}
+
+.shadow3 {
+	-webkit-box-shadow: 0px 0px 6px 0px #010101;  /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
+	-moz-box-shadow:    0px 0px 6px 0px #010101;  /* Firefox 3.5 - 3.6 */
+	box-shadow:         0px 0px 6px 0px #010101;  /* Opera 10.5, IE 9, Firefox 4+, Chrome 6+, iOS 5 */
+}
+
+.shadow4 {
+	-webkit-box-shadow: 3px 3px 5px 0px #010101;  /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
+	-moz-box-shadow:    3px 3px 5px 0px #010101;  /* Firefox 3.5 - 3.6 */
+	box-shadow:         3px 3px 5px 0px #010101;  /* Opera 10.5, IE 9, Firefox 4+, Chrome 6+, iOS 5 */
+}
 
 * {
 	margin: 0;

@@ -60,7 +60,7 @@
 	</div>
 
 	<!-- CTA -->
-	<section id="cta">	
+	<section id="cta" class="shadow0">	
 		<header>
 			<h2>Centro de Bachillerato Tecnológico Agropecuario No. 188</h2>
 			<p>"Dr. Pedro Velez y Zuñiga".</p>

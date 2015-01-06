@@ -1,5 +1,5 @@
 <!-- Inicio de formularios -->
-<section id="forms" class="wrapper style5 container special">
+<section id="forms" class="wrapper style5 container special shadow3">
 	<div class="row">
 		<!-- Formulario de logueo -->
 		<div class="6u">

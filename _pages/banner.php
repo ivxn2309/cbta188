@@ -1,4 +1,4 @@
-<div class="inner">
+<div class="inner shadow3">
 	<header>
 		<h2>C.B.T.a 188</h2>
 	</header>

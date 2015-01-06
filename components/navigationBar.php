@@ -3,7 +3,7 @@
 <nav id="nav">
 	<ul>				
 		<li class="current">
-			<a href="#" onclick="loadContent(1, 2, 1);">Inicio</a>
+			<a href="" onclick="loadContent(1, 2, 1);">Inicio</a>
 		</li>
 
 		<li>
