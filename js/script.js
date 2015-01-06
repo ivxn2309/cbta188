@@ -1,10 +1,11 @@
-
+// Manejo de cierre de sesion ========================
 function closeSession(){
 	$.post("index.php",{"salir":"1"}).done(function(){
 		window.location.href="index.php";
 	});
 }
 
+// Funciones de carga con Ajax ========================
 function loadPartially(page, section, isUser){
 	var url;
 	switch(page){
@@ -36,8 +37,42 @@ function loadPartially(page, section, isUser){
 	});
 }
 
-//Funcion de carga con Ajax
+
 function loadContent(banner, main, user){
 	loadPartially(banner, "#banner", user);
 	loadPartially(main, "#main", user);
+}
+
+// Vaildacion de credenciales ============================
+function validaDocente() {
+	var txtUser = document.getElementById("docente_user");
+	var txtPass = document.getElementById("docente_pass");
+	var errUser = document.getElementById("err_doc_user");
+	var errPass = document.getElementById("err_doc_pass");
+	var success = true;
+
+	// Si hay espacios en el campo de usuario
+	if(/\s/.test(txtUser.value)){
+		errUser.innerHTML = "Este campo no permite espacios en blanco";
+		success = false;
+	}
+	// Si esta vacio el campo de usuario
+	else if (txtUser.value.trim().length == 0){
+		errUser.innerHTML = "Este campo no puede quedar vacio";
+		success = false;
+	}
+	else{
+		errUser.innerHTML = "";
+	}
+
+	//Si la contraseña esta en blanco
+	if (txtPass.value.trim().length == 0){
+		errPass.innerHTML = "Este campo no puede quedar vacio";
+		success = false;
+	}
+	else{
+		errPass.innerHTML = "";
+	}
+
+	return success;
 }

@@ -4,7 +4,7 @@
 	include_once "utils/Common.php";
 	include_once "utils/Session.php";	
 	include_once "utils/SessionController.php";	
-	
+	//1400x406 jpg slideshow
 ?>
 <html>
 <head>

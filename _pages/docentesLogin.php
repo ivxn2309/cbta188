@@ -23,12 +23,14 @@
 				<header>
 					<h3>Identificación.</h3>
 				</header>						
-				<form method="post" action="index.php">
+				<form method="post" action="index.php" onsubmit="return validaDocente();">
 					<label for="docente_user">Usuario:</label>
 					<input type="text" placeholder="usuario@cbta188" id="docente_user" name="docente_user">
+					<center><span id="err_doc_user" class="error"></span></center>
 
 					<label for="docente_pass">Contraseña:</label>
 					<input type="password" placeholder="Contraseña" id="docente_pass" name="docente_pass">
+					<span id="err_doc_pass" class="error"></span>
 
 					<br><br>
 					<input type="submit" value="Entrar" id="docente_submit_signup">
