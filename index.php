@@ -22,6 +22,7 @@
 	<script src="js/init.js"></script>
 	<script src="js/script.js"></script>
 	<script src="js/unslider.js"></script>
+	<script src="js/noty/packaged/jquery.noty.packaged.min.js"></script>
 
 	<noscript>
 		<link rel="stylesheet" href="css/skel.css" />
@@ -34,6 +35,7 @@
 	<title>.: C.B.T.a. 188 :.</title>
 	<link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico">
 	<link rel="stylesheet" href="css/slider.css" />
+	<link rel="stylesheet" href="css/animate.css" />
 </head>
 <!-- ====================================================================================================== -->
 <body class="index">
@@ -48,7 +50,25 @@
 	</header>
 
 	<div id="content">
-		<?php if($loginAttempt) echo "Se proporcionó una credencial incorrecta"; ?>
+
+<?php if($loginAttempt):?>
+	<script type="text/javascript">
+
+		var n = noty({
+			text: '<center><br>Proporcionaste datos incorrectos<br><br></center>',
+			type: 'error',
+			layout: 'topRight',
+			dismissQueue: true,
+			template: '<div style="background-color:black; color:white;" class="noty_message"><span class="noty_text"></span><div class="noty_close"></div></div>',
+			animation: {
+				open: 'animated fadeInRight', // Animate.css class names
+				close: 'animated fadeOutRight', // Animate.css class names
+			}
+		});
+
+	</script>
+<?php endif; ?>
+
 		<section id="banner">
 			<?php include "_pages/banner.php"; ?>
 		</section>

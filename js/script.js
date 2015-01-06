@@ -56,9 +56,14 @@ function validaDocente() {
 		errUser.innerHTML = "Este campo no permite espacios en blanco";
 		success = false;
 	}
+	// Si hay espacios en el campo de usuario
+	else if(!(/@cbta188/.test(txtUser.value))){
+		errUser.innerHTML = "El usuario no es correcto";
+		success = false;
+	}
 	// Si esta vacio el campo de usuario
 	else if (txtUser.value.trim().length == 0){
-		errUser.innerHTML = "Este campo no puede quedar vacio";
+		errUser.innerHTML = "Este campo no puede quedar vacío";
 		success = false;
 	}
 	else{
@@ -66,8 +71,8 @@ function validaDocente() {
 	}
 
 	//Si la contraseña esta en blanco
-	if (txtPass.value.trim().length == 0){
-		errPass.innerHTML = "Este campo no puede quedar vacio";
+	if (txtPass.value.length < 8){
+		errPass.innerHTML = "Este campo debe contener mínimo 8 caracteres";
 		success = false;
 	}
 	else{
