@@ -28,7 +28,7 @@
 				<header>
 					<h3>Regístrate para tener acceso a tus datos como alumno.</h3>
 				</header>						
-				<form method="post" action="index.php">
+				<form method="post" action="#">
 					<label for="nocontroltxt">No. Control:</label>
 					<input type="text" placeholder="Número de control" id="nocontroltxt" name="nocontroltxt">
 					<span id="err_nocontroltxt" class="error"></span>
@@ -38,14 +38,14 @@
 					<span id="err_emailtxt" class="error"></span>
 					<br>
 					<label for="edadtxt">Edad:</label>
-					<input type="text" placeholder="Ingresa tu edad" id="edadtxt" name="edadtxt">
+					<input type="number" placeholder="Ingresa tu edad" id="edadtxt" name="edadtxt">
 					<span id="err_edadtxt" class="error"></span>
 					<br>
 					<label for="curptxt">C.U.R.P.:</label>
 					<input type="text" placeholder="Ingresa tu CURP" id="curptxt" name="curptxt">
 					<span id="err_curptxt" class="error"></span>
 					<br>
-					<input type="submit" value="Registrar" id="submit_signup">
+					<input type="button" value="Registrar" id="submit_signup" onclick="registraAlumno();">
 				</form>						
 			</section>
 		</div>

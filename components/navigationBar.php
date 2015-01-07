@@ -60,7 +60,7 @@
 			</li>
 
 			<li>
-				<a href="#" onclick="loadContent(0, 3, 0);">Alumnos</a>
+				<a id="nav_alumnos" href="#" onclick="loadContent(0, 3, 0);">Alumnos</a>
 			</li>
 
 			<li>

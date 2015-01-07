@@ -1,125 +1,152 @@
+function getRequestObject() {
+	if (window.ActiveXObject) {
+		return(new ActiveXObject("Microsoft.XMLHTTP"));
+	} else if (window.XMLHttpRequest) {
+		return(new XMLHttpRequest());
+	} else {
+		return(null);
+	}
+}
+
 function registraAlumno(){
-	var nom = document.getElementById('nombre_emp');
-	var errnom = document.getElementById('nombre_err');
+	var txtNoControl = document.getElementById('nocontroltxt');
+	var errNoControl = document.getElementById('err_nocontroltxt');
 
-	var puesto = document.getElementById('puesto_emp');
-	var errpuesto = document.getElementById('puesto_err');
+	var txtEmail = document.getElementById('emailtxt');
+	var errEmail = document.getElementById('err_emailtxt');
 
-	var edad = document.getElementById('edad_emp');
-	var erredad = document.getElementById('edad_err');
+	var txtEdad = document.getElementById('edadtxt');
+	var errEdad = document.getElementById('err_edadtxt');
 
-	var dom = document.getElementById('domicilio_emp');
-	var errdom = document.getElementById('dom_err');
+	var txtCurp = document.getElementById('curptxt');
+	var errCurp = document.getElementById('err_curptxt');
 
-	var nick = document.getElementById('nick_emp');
-	var errnick = document.getElementById('nick_err');
+	var success = true;
 
-	var pass = document.getElementById('pass_emp');
-	var errpass = document.getElementById('emp_err');
-
-	var admin = document.getElementById('isAdminChk').checked;
-	admin = admin? 1:0;
-
-	var ok = true;
-	//Nombre
-	if(nom.value == ""){
-		errnom.innerHTML ="Debes completar este campo";
-		ok = false;
-	}else if(nom.value.lenght > 80){
-		errnom.innerHTML ="Demasiado largo";
-		ok = false;
-	}else {
-		errnom.innerHTML="";
+	// Si hay espacios en el campo de numero de control
+	if(/\s/.test(txtNoControl.value)){
+		errNoControl.innerHTML = "Este campo no permite espacios en blanco";
+		success = false;
 	}
-	
-	//Puesto
-	if(puesto.value == ""){
-		errpuesto.innerHTML ="Debes completar este campo";
-		ok = false;
-	}else if(puesto.value.lenght > 80){
-		errpuesto.innerHTML ="Demasiado largo";
-		ok = false;
-	}else {
-		errpuesto.innerHTML="";
+	// Si esta vacio el campo de numero de control
+	else if (txtNoControl.value.trim().length == 0){
+		errNoControl.innerHTML = "Este campo no puede quedar vacío";
+		success = false;
 	}
-	
-	//Edad
-	if(edad.value == ""){
-		erredad.innerHTML ="Debes completar este campo";
-		ok = false;
-	}else if(edad.value != "" && (edad.value < 1 || edad.value > 100)){
-		erredad.innerHTML ="Valor incorrecto";
-		ok = false;
-	}else {
-		erredad.innerHTML="";
+	else{
+		errNoControl.innerHTML = "";
 	}
 
-	//Direccion
-	if(dom.value == ""){
-		errdom.innerHTML ="Debes completar este campo";
-		ok = false;
-	}else if(dom.value.lenght > 80){
-		errdom.innerHTML ="Demasiado largo";
-		ok = false;
-	}else {
-		errdom.innerHTML="";
+	// Si hay espacios en el email
+	if(/\s/.test(txtEmail.value)){
+		errEmail.innerHTML = "Este campo no permite espacios en blanco";
+		success = false;
+	}
+	// Si esta vacio el email
+	else if (txtEmail.value.trim().length == 0){
+		errEmail.innerHTML = "Este campo no puede quedar vacío";
+		success = false;
+	}
+	// Si hay espacios en el email
+	else if(!(/@/.test(txtEmail.value))){
+		errEmail.innerHTML = "Correo inválido";
+		success = false;
+	}
+	else{
+		errEmail.innerHTML = "";
 	}
 
-	//Nickname
-	if(nick.value == ""){
-		errnick.innerHTML ="Debes completar este campo";
-		ok = false;
-	}else if (nick.value.indexOf(" ") > 0) {
-		errnick.innerHTML ="No se admite espacios";
-		ok = false;
-	}else if(nick.value.lenght > 50){
-		errnick.innerHTML ="Demasiado largo";
-		ok = false;
-	}else {
-		errnick.innerHTML="";
+	// Si hay espacios en la edad
+	if(/\s/.test(txtEdad.value)){
+		errEdad.innerHTML = "Este campo no permite espacios en blanco";
+		success = false;
+	}
+	// Si esta vacio el campo de curp
+	else if (txtEdad.value.trim().length == 0){
+		errEdad.innerHTML = "Este campo no puede quedar vacío";
+		success = false;
+	}
+	//Si la edad introducida no es un numero
+	else if(isNaN(txtEdad.value)){
+		errEdad.innerHTML = "Solo se permiten numeros";
+		success = false;
+	}
+	//Si la edad introducida es muy baja
+	else if(txtEdad.value < 8 || txtEdad.value > 99){
+		errEdad.innerHTML = "Edad invalida";
+		success = false;
+	}
+	else{
+		errEdad.innerHTML = "";
 	}
 
-	//Password
-	if(pass.value == ""){
-		errpass.innerHTML ="Debes completar este campo";
-		ok = false;
-	}else if(pass.value.lenght > 80){
-		errpass.innerHTML ="Demasiado largo";
-		ok = false;
-	}else {
-		errpass.innerHTML="";
+	// Si hay espacios en la curp
+	if(/\s/.test(txtCurp.value)){
+		errCurp.innerHTML = "Este campo no permite espacios en blanco";
+		success = false;
+	}
+	// Si esta vacio el campo de curp
+	else if (txtCurp.value.trim().length == 0){
+		errCurp.innerHTML = "Este campo no puede quedar vacío";
+		success = false;
+	}
+	else{
+		errCurp.innerHTML = "";
 	}
 
-	if(ok){
-		$.blockUI({ css: { backgroundColor: '#000', color: '#DDD', opacity: '.7', borderColor: '#000'}, message: '<h4>Espere por favor...</h4>' });
+	if(success){
 		var request = getRequestObject();
-		var datos = {
-			nombre : nom.value,
-			puesto : puesto.value,
-			edad : edad.value,
-			dom : dom.value,
-			nick : nick.value,
-			pass : pass.value,
-			admin : admin
+		var data = {
+			control : txtNoControl.value,
+			email : txtEmail.value,
+			edad : txtEdad.value,
+			curp : txtCurp.value
 		};
 
 		request.onreadystatechange = function() {
 			if (request.readyState== 4 && request.status == 200) {
 				var result=request.responseText; 
-				if (result.indexOf("Error")==-1){
-					alert("El empleado ha sido registrado");
-					$('#list_emp').click();
-					$.unblockUI();
+				if (result.indexOf("Error") == -1) {
+					$('#nav_alumnos').click();
+					var m = noty({
+						text: '<center><br>Registro exitoso<br><br></center>',
+						type: 'success',
+						layout: 'topRight',
+						dismissQueue: true,
+						animation: {
+							open: 'animated fadeInRight', // Animate.css class names
+							close: 'animated fadeOutRight', // Animate.css class names
+						}
+					});
+					var n = noty({
+						text: '<center><br>Ahora puedes iniciar sesión<br><br></center>',
+						type: 'information',
+						layout: 'topRight',
+						dismissQueue: true,
+						animation: {
+							open: 'animated fadeInRight', // Animate.css class names
+							close: 'animated fadeOutRight', // Animate.css class names
+						}
+					});
 				}
 				else {
-					alert("No se puede alcanzar el servicio: " + result);
+					var o = noty({
+						text: '<center><br>No se pudo establecer la conexión<br><br></center>',
+						type: 'error',
+						layout: 'topRight',
+						dismissQueue: true,
+						animation: {
+							open: 'animated fadeInRight', // Animate.css class names
+							close: 'animated fadeOutRight', // Animate.css class names
+						}
+					});
 				}
 			}
 		};
 
-		request.open("POST","php/funciones.php",true);
-		var datos="nuevoEmp="+escape(JSON.stringify(datos));
+		request.open("POST","components/Alumno.php", true);
+		var data="registroAlumno="+escape(JSON.stringify(data));
 		request.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
-		request.send(datos);
+		request.send(data);
 	}
 }

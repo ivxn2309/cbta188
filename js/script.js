@@ -43,16 +43,6 @@ function loadContent(banner, main, user){
 	loadPartially(main, "#main", user);
 }
 
-function getRequestObject() {
-	if (window.ActiveXObject) {
-		return(new ActiveXObject("Microsoft.XMLHTTP"));
-	} else if (window.XMLHttpRequest) {
-		return(new XMLHttpRequest());
-	} else {
-		return(null);
-	}
-}
-
 // Vaildacion de credenciales ============================
 function validaDocente() {
 	var txtUser = document.getElementById("docente_user");
