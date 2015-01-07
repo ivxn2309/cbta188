@@ -29,6 +29,22 @@ CREATE TABLE IF NOT EXISTS Profesor (
 ) COMMENT = 'Contiene la informacion necesaria para identificar a los profesores';
 
 -- ------------------------------------------------
+-- Informacion del Profesor
+-- ------------------------------------------------
+DROP TABLE IF EXISTS ProfesorData;
+CREATE TABLE IF NOT EXISTS ProfesorData (
+	id_docente VARCHAR(15) NOT NULL,
+	edad INT(3),
+	profesion VARCHAR(100),
+	certificaciones VARCHAR(150),
+	intereses VARCHAR(150),
+	citas VARCHAR(150),
+	detalles VARCHAR(200),
+	url VARCHAR(200),
+	PRIMARY KEY (id_docente)
+) COMMENT = 'Contiene la informacion adicional de los profesores';
+
+-- ------------------------------------------------
 -- Materia
 -- ------------------------------------------------
 DROP TABLE IF EXISTS Materia;

@@ -3,21 +3,21 @@
 <nav id="nav">
 	<ul>				
 		<li class="current">
-			<a href="index.php" onclick="//loadContent(1, 2, 1);">Inicio</a>
+			<a href="index.php">Inicio</a>
 		</li>
 
 		<li>
-			<a href="#" onclick="loadContent(0, 5, 1);">Horarios</a>
+			<a href="#" onclick="loadContent(0, 8, 1);">Horarios</a>
 		</li>
 
 		<li>
-			<a href="#" onclick="loadContent(0, 6, 1);">Calificaciones</a>
+			<a href="#" onclick="loadContent(0, 9, 1);">Calificaciones</a>
 		</li>
 		
 		<li class="submenu">
 			<a href="#"><?php echo $_SESSION['email'];?></a>
 			<ul>
-				<li><a href="#" onclick="loadEditarPerfil();">Editar Perfil</a></li>
+				<li><a href="#" onclick="loadContent(0, 10, 2);">Editar Perfil</a></li>
 				<li><a href="#" id="cerrar" onclick="closeSession();">Cerrar Sesión</a></li>
 			</ul>
 		</li>
@@ -31,21 +31,21 @@
 	<nav id="nav">
 		<ul>				
 			<li class="current">
-				<a href="index.php" onclick="//loadContent(1, 2, 1);">Inicio</a>
+				<a href="index.php">Inicio</a>
 			</li>
 
 			<li>
-				<a href="#" onclick="loadContent(0, 5, 1);">Ver Grupos</a>
+				<a href="#" onclick="loadContent(0, 5, 2);">Ver Grupos</a>
 			</li>
 
 			<li>
-				<a href="#" onclick="loadContent(0, 6, 1);">Editar Calificaciones</a>
+				<a href="#" onclick="loadContent(0, 6, 2);">Editar Calificaciones</a>
 			</li>
 			
 			<li class="submenu">
 				<a href="#"><?php echo $_SESSION['doc_user'];?></a>
 				<ul>
-					<li><a href="#" onclick="loadEditarPerfil();">Editar Perfil</a></li>
+					<li><a href="#" onclick="loadContent(0, 7, 2);">Editar Perfil</a></li>
 					<li><a href="#" id="cerrar" onclick="closeSession();">Cerrar Sesión</a></li>
 				</ul>
 			</li>
@@ -56,7 +56,7 @@
 	<nav id="nav">
 		<ul>				
 			<li class="current">
-				<a href="index.php" onclick="//loadContent(1, 2, 0);">Inicio</a>
+				<a href="index.php">Inicio</a>
 			</li>
 
 			<li>

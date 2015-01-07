@@ -32,15 +32,15 @@
 					<label for="nocontroltxt">No. Control:</label>
 					<input type="text" placeholder="Número de control" id="nocontroltxt" name="nocontroltxt">
 					<span id="err_nocontroltxt" class="error"></span>
-					<br>
+					
 					<label for="emailtxt">E-mail:</label>
 					<input type="email" placeholder="usuario@example.com" id="emailtxt" name="emailtxt">
 					<span id="err_emailtxt" class="error"></span>
-					<br>
+					
 					<label for="edadtxt">Edad:</label>
 					<input type="number" placeholder="Ingresa tu edad" id="edadtxt" name="edadtxt">
 					<span id="err_edadtxt" class="error"></span>
-					<br>
+					
 					<label for="curptxt">C.U.R.P.:</label>
 					<input type="text" placeholder="Ingresa tu CURP" id="curptxt" name="curptxt">
 					<span id="err_curptxt" class="error"></span>

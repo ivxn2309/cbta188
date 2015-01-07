@@ -25,12 +25,12 @@ function registraAlumno(){
 
 	// Si hay espacios en el campo de numero de control
 	if(/\s/.test(txtNoControl.value)){
-		errNoControl.innerHTML = "Este campo no permite espacios en blanco";
+		errNoControl.innerHTML = "Este campo no permite espacios en blanco<br>";
 		success = false;
 	}
 	// Si esta vacio el campo de numero de control
 	else if (txtNoControl.value.trim().length == 0){
-		errNoControl.innerHTML = "Este campo no puede quedar vacío";
+		errNoControl.innerHTML = "Este campo no puede quedar vacío<br>";
 		success = false;
 	}
 	else{
@@ -39,17 +39,17 @@ function registraAlumno(){
 
 	// Si hay espacios en el email
 	if(/\s/.test(txtEmail.value)){
-		errEmail.innerHTML = "Este campo no permite espacios en blanco";
+		errEmail.innerHTML = "Este campo no permite espacios en blanco<br>";
 		success = false;
 	}
 	// Si esta vacio el email
 	else if (txtEmail.value.trim().length == 0){
-		errEmail.innerHTML = "Este campo no puede quedar vacío";
+		errEmail.innerHTML = "Este campo no puede quedar vacío<br>";
 		success = false;
 	}
 	// Si hay espacios en el email
 	else if(!(/@/.test(txtEmail.value))){
-		errEmail.innerHTML = "Correo inválido";
+		errEmail.innerHTML = "Correo inválido<br>";
 		success = false;
 	}
 	else{
@@ -58,22 +58,22 @@ function registraAlumno(){
 
 	// Si hay espacios en la edad
 	if(/\s/.test(txtEdad.value)){
-		errEdad.innerHTML = "Este campo no permite espacios en blanco";
+		errEdad.innerHTML = "Este campo no permite espacios en blanco<br>";
 		success = false;
 	}
 	// Si esta vacio el campo de curp
 	else if (txtEdad.value.trim().length == 0){
-		errEdad.innerHTML = "Este campo no puede quedar vacío";
+		errEdad.innerHTML = "Este campo no puede quedar vacío<br>";
 		success = false;
 	}
 	//Si la edad introducida no es un numero
 	else if(isNaN(txtEdad.value)){
-		errEdad.innerHTML = "Solo se permiten numeros";
+		errEdad.innerHTML = "Solo se permiten numeros<br>";
 		success = false;
 	}
 	//Si la edad introducida es muy baja
 	else if(txtEdad.value < 8 || txtEdad.value > 99){
-		errEdad.innerHTML = "Edad invalida";
+		errEdad.innerHTML = "Edad inválida<br>";
 		success = false;
 	}
 	else{
@@ -82,12 +82,12 @@ function registraAlumno(){
 
 	// Si hay espacios en la curp
 	if(/\s/.test(txtCurp.value)){
-		errCurp.innerHTML = "Este campo no permite espacios en blanco";
+		errCurp.innerHTML = "Este campo no permite espacios en blanco<br>";
 		success = false;
 	}
 	// Si esta vacio el campo de curp
 	else if (txtCurp.value.trim().length == 0){
-		errCurp.innerHTML = "Este campo no puede quedar vacío";
+		errCurp.innerHTML = "Este campo no puede quedar vacío<br>";
 		success = false;
 	}
 	else{
@@ -106,7 +106,7 @@ function registraAlumno(){
 		request.onreadystatechange = function() {
 			if (request.readyState== 4 && request.status == 200) {
 				var result=request.responseText; 
-				if (result.indexOf("Error") == -1) {
+				if (result.indexOf("Listo") > -1) {
 					$('#nav_alumnos').click();
 					var m = noty({
 						text: '<center><br>Registro exitoso<br><br></center>',
@@ -129,8 +129,20 @@ function registraAlumno(){
 						}
 					});
 				}
-				else {
+				else if(result.indexOf("Invalido") > -1){
 					var o = noty({
+						text: '<br>Tu número de control aún no tiene información asociada, comunícate con tu tutor.<br><br>',
+						type: 'warning',
+						layout: 'topRight',
+						dismissQueue: true,
+						animation: {
+							open: 'animated fadeInRight', // Animate.css class names
+							close: 'animated fadeOutRight', // Animate.css class names
+						}
+					});
+				}
+				else {
+					var p = noty({
 						text: '<center><br>No se pudo establecer la conexión<br><br></center>',
 						type: 'error',
 						layout: 'topRight',

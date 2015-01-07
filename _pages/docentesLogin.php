@@ -1,7 +1,6 @@
 <!-- Inicio de formularios -->
 <section id="forms" class="wrapper style5 container special shadow3">
 	<div class="row">
-		<!-- Formulario de logueo -->
 		<div class="6u">
 			<section>
 				<header>
@@ -15,9 +14,8 @@
 				</p>
 			</section>				
 		</div>
-		<!-- Fin de formulario de logueo -->
 		
-		<!-- Formulario de registro -->
+		<!-- Formulario de logueo docente -->
 		<div class="6u">
 			<section>
 				<header>
@@ -37,7 +35,7 @@
 				</form>						
 			</section>
 		</div>
-		<!-- Fin de formulario de registro -->
+		<!-- Fin de formulario -->
 	</div>
 </section>
 <!-- Fin de formularios -->

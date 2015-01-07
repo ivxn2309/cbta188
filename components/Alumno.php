@@ -9,13 +9,15 @@ if(isset($_POST["registroAlumno"])) {
 	$edad = $alumno["edad"];
 	$curp = $alumno["curp"];
 
-	$query = "INSERT INTO alumnoentity VALUES('$control', '$email', '$curp', '$edad')";
+	$query = "SELECT no_control FROM alumnodata WHERE no_control='$control'";
 	$result = mysql_query($query);
-
-	if($result){
-		echo 'Listo';
-	} else {
-		echo 'Error';
+	
+	if(mysql_num_rows($result) > 0){
+		$query = "INSERT INTO alumnoentity VALUES('$control', '$email', '$curp', '$edad')";
+		$result = mysql_query($query);
+		if($result)	echo 'Listo';
+		else echo 'Error';		
 	}
+	else echo 'Invalido';
 }
 ?>
