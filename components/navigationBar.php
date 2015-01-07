@@ -45,7 +45,7 @@
 			<li class="submenu">
 				<a href="#"><?php echo $_SESSION['doc_user'];?></a>
 				<ul>
-					<li><a href="#" onclick="loadContent(0, 7, 2);">Editar Perfil</a></li>
+					<li><a <?php echo 'onclick="loadContent(0, 7, 2, \''.$_SESSION['doc_user'].'\');"';?> href="#">Editar Perfil</a></li>
 					<li><a href="#" id="cerrar" onclick="closeSession();">Cerrar Sesión</a></li>
 				</ul>
 			</li>

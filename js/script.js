@@ -6,7 +6,7 @@ function closeSession(){
 }
 
 // Funciones de carga con Ajax ========================
-function loadPartially(page, section, isUser){
+function loadPartially(page, section, isUser, user){
 	var url;
 	switch(page){
 		case 0:
@@ -32,7 +32,8 @@ function loadPartially(page, section, isUser){
 		type: "POST", 
 		url: url,
 		data:{
-			"isUser":isUser
+			"isUser":isUser,
+			"username":user
 		}, 
 		success: function(datos){
 			$(section).html(datos);
@@ -41,9 +42,9 @@ function loadPartially(page, section, isUser){
 }
 
 
-function loadContent(banner, main, user){
-	loadPartially(banner, "#banner", user);
-	loadPartially(main, "#main", user);
+function loadContent(banner, main, isUser, user){
+	loadPartially(banner, "#banner", isUser, user);
+	loadPartially(main, "#main", isUser, user);
 }
 
 // Vaildacion de credenciales ============================

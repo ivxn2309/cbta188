@@ -8,16 +8,124 @@ function getRequestObject() {
 	}
 }
 
-function registraAlumno(){
+function showNotification(text, type){
+	var a = noty({
+		text: '<center><br>' + text + '<br><br></center>',
+		type: type,
+		layout: 'topRight',
+		dismissQueue: true,
+		timeout: true,
+		maxVisible: 6,
+		animation: {
+			open: 'animated fadeInRight', // Animate.css class names
+			close: 'animated fadeOutRight', // Animate.css class names
+		}
+	});
+}
+
+function updateDocente() {
+	var txtUsuario = document.getElementById('usuario_doc').value;
+	var txtNombre = document.getElementById('nombre_doc').value;
+	var errNombre = document.getElementById('err_nombre_doc');
+	var txtEmail = document.getElementById('email_doc').value;
+	var errEmail = document.getElementById('err_email_doc');
+	var txtPass = document.getElementById('pass_doc').value;
+	var errPass = document.getElementById('err_pass_doc');
+	var txtNewPass = document.getElementById('new_pass_doc').value;
+	var errNewPass = document.getElementById('err_new_pass_doc');
+	var txtCNewPass = document.getElementById('cnew_pass_doc').value;
+	var errCNewPass = document.getElementById('err_cnew_pass_doc');
+	var txtEdad = document.getElementById('edad_doc').value;
+	var errEdad = document.getElementById('err_edad_doc');
+	var txtProfesion = document.getElementById('profesion').value;
+	var errProfesion = document.getElementById('err_profesion');
+	var txtUrl = document.getElementById('url_doc').value;
+	var errUrl = document.getElementById('err_url_doc');
+	var txtCerti = document.getElementById('certificaciones').value;
+	var errCerti = document.getElementById('err_certi');
+	var txtFrase = document.getElementById('frase').value;
+	var errFrase = document.getElementById('err_frase');
+	var txtIntereses = document.getElementById('intereses').value;
+	var errIntereses = document.getElementById('err_intereses');
+	var txtDetalles = document.getElementById('detalles_doc').value;
+	var errDetalles = document.getElementById('err_detalles_doc');
+	var success = true;
+
+	if(txtPass.length == 0){
+		document.getElementById('new_pass_doc').value = "";
+		document.getElementById('cnew_pass_doc').value = "";
+	}
+	else if(txtPass.length < 8){
+		document.getElementById('new_pass_doc').value = "";
+		document.getElementById('cnew_pass_doc').value = "";
+		errPass.innerHTML = "Contraseña inválida<br>";
+		var success = false;
+	}
+	else {
+		errPass.innerHTML = "";
+		if(txtNewPass.length < 8){
+			errNewPass.innerHTML = "La contraseña debe contener al menos 8 caracteres<br>";
+			var success = false;
+		}
+		else if(txtNewPass !== txtCNewPass){
+			errCNewPass.innerHTML = "No concuerda con la anterior<br>";
+			var success = false;
+		}
+		else {
+			errCNewPass.innerHTML = "";
+			errNewPass.innerHTML = "";
+		}
+	}	
+
+	if(success){
+		var request = getRequestObject();
+		var data = {
+			"usuario" : txtUsuario,
+			"nombre" : txtNombre,
+			"email" : txtEmail,
+			"newpass" : txtNewPass,
+			"pass" : txtPass,
+			"edad" : txtEdad,
+			"profesion" : txtProfesion,
+			"url" : txtUrl,
+			"certi" : txtCerti,
+			"frase" : txtFrase,
+			"intereses" : txtIntereses,
+			"detalles" : txtDetalles 
+		};
+
+		request.onreadystatechange = function() {
+			if (request.readyState== 4 && request.status == 200) {
+				var result=request.responseText; 
+				if (result.indexOf("Aviso: Contraseña incorrecta") > -1) {
+					showNotification("Tu contraseña NO ha sido modificada", "warning");
+				}
+				if(result.indexOf("Aviso: Informacion basica guardada") > -1){
+					showNotification("Informacion básica actualizada", "success");
+				}
+				if(result.indexOf("Correcto: Informacion adicional guardada") > -1){
+					showNotification("Información adicional actualizada", "information");
+				}
+				if(result.indexOf("Error") > -1){
+					showNotification("Hubo un problema, intenta mas tarde", "error");
+				}
+			}
+		};
+
+		request.open("POST","components/DocenteController.php", true);
+		var data="actualizarDocente="+escape(JSON.stringify(data));
+		request.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+		request.send(data);
+	}
+}
+
+function registraAlumno() {
 	var txtNoControl = document.getElementById('nocontroltxt');
 	var errNoControl = document.getElementById('err_nocontroltxt');
-
 	var txtEmail = document.getElementById('emailtxt');
 	var errEmail = document.getElementById('err_emailtxt');
-
 	var txtEdad = document.getElementById('edadtxt');
 	var errEdad = document.getElementById('err_edadtxt');
-
 	var txtCurp = document.getElementById('curptxt');
 	var errCurp = document.getElementById('err_curptxt');
 
@@ -108,50 +216,14 @@ function registraAlumno(){
 				var result=request.responseText; 
 				if (result.indexOf("Listo") > -1) {
 					$('#nav_alumnos').click();
-					var m = noty({
-						text: '<center><br>Registro exitoso<br><br></center>',
-						type: 'success',
-						layout: 'topRight',
-						dismissQueue: true,
-						animation: {
-							open: 'animated fadeInRight', // Animate.css class names
-							close: 'animated fadeOutRight', // Animate.css class names
-						}
-					});
-					var n = noty({
-						text: '<center><br>Ahora puedes iniciar sesión<br><br></center>',
-						type: 'information',
-						layout: 'topRight',
-						dismissQueue: true,
-						animation: {
-							open: 'animated fadeInRight', // Animate.css class names
-							close: 'animated fadeOutRight', // Animate.css class names
-						}
-					});
+					showNotification("Registro exitoso", "success");
+					showNotification("Ahora puedes iniciar sesión", "information");
 				}
 				else if(result.indexOf("Invalido") > -1){
-					var o = noty({
-						text: '<br>Tu número de control aún no tiene información asociada, comunícate con tu tutor.<br><br>',
-						type: 'warning',
-						layout: 'topRight',
-						dismissQueue: true,
-						animation: {
-							open: 'animated fadeInRight', // Animate.css class names
-							close: 'animated fadeOutRight', // Animate.css class names
-						}
-					});
+					showNotification("Tu número de control aún no tiene información asociada, comunícate con tu tutor", "warning");					
 				}
 				else {
-					var p = noty({
-						text: '<center><br>No se pudo establecer la conexión<br><br></center>',
-						type: 'error',
-						layout: 'topRight',
-						dismissQueue: true,
-						animation: {
-							open: 'animated fadeInRight', // Animate.css class names
-							close: 'animated fadeOutRight', // Animate.css class names
-						}
-					});
+					showNotification("No se pudo establecer la conexión", "error");
 				}
 			}
 		};

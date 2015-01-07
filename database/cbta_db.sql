@@ -6,6 +6,15 @@
 -- =====================================================
 
 -- ------------------------------------------------
+-- Base de datos 
+-- ------------------------------------------------
+CREATE DATABASE `cbta188` CHARACTER SET utf8 COLLATE utf8_general_ci;
+GRANT ALL ON `cbta188`.* TO `root`@localhost IDENTIFIED BY '';
+FLUSH PRIVILEGES;
+
+use cbta188;
+
+-- ------------------------------------------------
 -- AlumnoEntity 
 -- ------------------------------------------------
 DROP TABLE IF EXISTS AlumnoEntity;
@@ -35,6 +44,7 @@ DROP TABLE IF EXISTS ProfesorData;
 CREATE TABLE IF NOT EXISTS ProfesorData (
 	id_docente VARCHAR(15) NOT NULL,
 	edad INT(3),
+	email VARCHAR(100),
 	profesion VARCHAR(100),
 	certificaciones VARCHAR(150),
 	intereses VARCHAR(150),
