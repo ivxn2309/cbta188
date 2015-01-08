@@ -113,8 +113,8 @@ function updateDocente() {
 		};
 
 		request.open("POST","components/DocenteController.php", true);
-		var data="actualizarDocente="+escape(JSON.stringify(data));
-		request.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+		var data="actualizarDocente="+JSON.stringify(data);
+		request.setRequestHeader("Content-Type","application/x-www-form-urlencoded;charset=utf-8");
 		request.send(data);
 	}
 }
