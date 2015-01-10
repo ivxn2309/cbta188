@@ -78,15 +78,15 @@ INSERT INTO Grupo VALUES("1B", "1º 'B'", "1er Semestre");
 INSERT INTO Grupo VALUES("1C", "1º 'C'", "1er Semestre");
 INSERT INTO Grupo VALUES("1D", "1º 'D'", "1er Semestre");
 
-INSERT INTO Grupo VALUES("3TAA", "Tecnico Agropecuario", "3er Semestre");
-INSERT INTO Grupo VALUES("3TIA", "Tecnico en Informatica Grupo A", "3er Semestre");
-INSERT INTO Grupo VALUES("3TIB", "Tecnico en Informatica Grupo B", "3er Semestre");
-INSERT INTO Grupo VALUES("3TADA", "Tecnico en Administracion para el Emprendimiento Agropecuario", "3er Semestre");
+INSERT INTO Grupo VALUES("3TAA", "T. Agropecuario", "3er Semestre");
+INSERT INTO Grupo VALUES("3TIA", "T. Informatica Grupo A", "3er Semestre");
+INSERT INTO Grupo VALUES("3TIB", "T. Informatica Grupo B", "3er Semestre");
+INSERT INTO Grupo VALUES("3TADA", "T. Administracion", "3er Semestre");
 
-INSERT INTO Grupo VALUES("5TAA", "Tecnico Agropecuario", "5to Semestre");
-INSERT INTO Grupo VALUES("5TIA", "Tecnico en Informatica Grupo A", "5to Semestre");
-INSERT INTO Grupo VALUES("5TIB", "Tecnico en Informatica Grupo B", "5to Semestre");
-INSERT INTO Grupo VALUES("5TADA", "Tecnico en Administracion para el Emprendimiento Agropecuario", "5to Semestre");
+INSERT INTO Grupo VALUES("5TAA", "T. Agropecuario", "5to Semestre");
+INSERT INTO Grupo VALUES("5TIA", "T. Informatica Grupo A", "5to Semestre");
+INSERT INTO Grupo VALUES("5TIB", "T. Informatica Grupo B", "5to Semestre");
+INSERT INTO Grupo VALUES("5TADA", "T. Administracion", "5to Semestre");
 
 -- ------------------------------------------------
 -- HorarioDocente

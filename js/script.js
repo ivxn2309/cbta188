@@ -27,6 +27,9 @@ function loadPartially(page, section, isUser, user){
 		case 7:
 			url = "_pages/perfilDocente.php";
 			break;
+		case 8:
+			url = "_pages/grupos.php";
+			break;
 	}
 	$.ajax({
 		type: "POST", 

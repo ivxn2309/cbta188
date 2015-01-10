@@ -24,6 +24,7 @@
 	<script src="js/unslider.js"></script>
 	<script src="js/noty/packaged/jquery.noty.packaged.min.js"></script>
 	<script src="js/db-modifier.js"></script>
+	<script src="js/group-loader.js"></script>
 
 	<noscript>
 		<link rel="stylesheet" href="css/skel.css" />

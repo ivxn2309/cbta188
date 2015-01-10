@@ -35,7 +35,7 @@
 			</li>
 
 			<li>
-				<a href="#" onclick="loadContent(0, 5, 2);">Ver Grupos</a>
+				<a href="#" onclick="loadContent(0, 8, 2);">Ver Grupos</a>
 			</li>
 
 			<li>
