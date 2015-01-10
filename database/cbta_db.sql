@@ -20,8 +20,8 @@ use cbta188;
 DROP TABLE IF EXISTS AlumnoEntity;
 CREATE TABLE IF NOT EXISTS AlumnoEntity (
 	no_control VARCHAR(15) NOT NULL,
-	email VARCHAR(100) NOT NULL,
-	curp VARCHAR(18) NOT NULL,
+	email VARCHAR(100),
+	curp VARCHAR(18),
 	edad INT(3),
 	PRIMARY KEY (no_control)
 ) COMMENT = 'Se usa para el logueo de usuarios';

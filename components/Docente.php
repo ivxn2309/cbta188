@@ -69,20 +69,20 @@ class Docente {
     public function save(){
     	$id = $this->self['id'];
     	$query = "SELECT id_docente FROM profesordata WHERE id_docente='$id'";
-    	$result = mysql_query($query);
-    	$hasData = mysql_num_rows($result);
+    	$result = mysql_query( $query );
+    	$hasData = mysql_num_rows( $result );
 
     	$nombre = $this->self['nombre'];
     	$pass = $this->self['nombre'];
     	$query = "UPDATE profesor SET nombre = '$nombre', password = '$pass' WHERE id_docente = '$id'";
-    	$result = mysql_query($query);
+    	$result = mysql_query( $query );
 
     	if( $result ) echo "Aviso: Informacion basica guardada";
     	else echo "Error: al guardar iformacion basica en la BD";
 
     	if( !$hasData ){
 			$query = "INSERT INTO profesordata VALUES('$id', '', '', '', '', '', '', '', '')";
-    		$result = mysql_query($query);    		
+    		$result = mysql_query( $query );    		
     	}
 
     	$query = "UPDATE profesordata SET " . 
@@ -96,7 +96,7 @@ class Docente {
     			 	"url='" . $this->self['url'] . "' " .
     			 "WHERE id_docente = '$id'";
     	//echo "<br><b>query: " . $query . "</b><br>";
-    	$result = mysql_query($query);
+    	$result = mysql_query( $query );
     	
     	if( $result ) 
     		return 1;

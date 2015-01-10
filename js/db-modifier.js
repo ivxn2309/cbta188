@@ -214,12 +214,12 @@ function registraAlumno() {
 		request.onreadystatechange = function() {
 			if (request.readyState== 4 && request.status == 200) {
 				var result=request.responseText; 
-				if (result.indexOf("Listo") > -1) {
+				if (result.indexOf("Correcto: Alumno guardado") > -1) {
 					$('#nav_alumnos').click();
 					showNotification("Registro exitoso", "success");
 					showNotification("Ahora puedes iniciar sesión", "information");
 				}
-				else if(result.indexOf("Invalido") > -1){
+				else if(result.indexOf("No hay un numero de control asociado") > -1){
 					showNotification("Tu número de control aún no tiene información asociada, comunícate con tu tutor", "warning");					
 				}
 				else {
@@ -228,8 +228,8 @@ function registraAlumno() {
 			}
 		};
 
-		request.open("POST","components/Alumno.php", true);
-		var data="registroAlumno="+escape(JSON.stringify(data));
+		request.open("POST","components/AlumnoController.php", true);
+		var data="registroAlumno="+JSON.stringify(data);
 		request.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
 		request.send(data);
 	}
