@@ -73,8 +73,12 @@ class Docente {
     	$hasData = mysql_num_rows( $result );
 
     	$nombre = $this->self['nombre'];
-    	$pass = $this->self['nombre'];
-    	$query = "UPDATE profesor SET nombre = '$nombre', password = '$pass' WHERE id_docente = '$id'";
+    	$pass = $this->self['password'];
+        if( $pass !== "" )
+    	   $query = "UPDATE profesor SET nombre = '$nombre', password = '$pass' WHERE id_docente = '$id'";
+        else
+            $query = "UPDATE profesor SET nombre = '$nombre' WHERE id_docente = '$id'";
+        echo "<br>Query4: " . $query;
     	$result = mysql_query( $query );
 
     	if( $result ) echo "Aviso: Informacion basica guardada";
@@ -95,7 +99,7 @@ class Docente {
     			 	"detalles= '" . $this->self['detalles'] . "', " .
     			 	"url='" . $this->self['url'] . "' " .
     			 "WHERE id_docente = '$id'";
-    	//echo "<br><b>query: " . $query . "</b><br>";
+    	echo "<br>Query6: " . $query;
     	$result = mysql_query( $query );
     	
     	if( $result ) 

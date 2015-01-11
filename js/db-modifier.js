@@ -15,7 +15,7 @@ function showNotification(text, type){
 		layout: 'topRight',
 		timeout: 3000,
 		dismissQueue: true,		
-		maxVisible: 6,
+		maxVisible: 7,
 		animation: {
 			open: 'animated fadeInRight', // Animate.css class names
 			close: 'animated fadeOutRight', // Animate.css class names
@@ -54,6 +54,7 @@ function updateDocente() {
 	if(txtPass.length == 0){
 		document.getElementById('new_pass_doc').value = "";
 		document.getElementById('cnew_pass_doc').value = "";
+		txtNewPass = txtPass;
 	}
 	else if(txtPass.length < 8){
 		document.getElementById('new_pass_doc').value = "";
@@ -68,16 +69,22 @@ function updateDocente() {
 			var success = false;
 		}
 		else if(txtNewPass !== txtCNewPass){
-			errCNewPass.innerHTML = "No concuerda con la anterior<br>";
+			errCNewPass.innerHTML = "Las contraseñas deben coincidir<br>";
+			errNewPass.innerHTML = "Las contraseñas deben coincidir<br>";
 			var success = false;
 		}
 		else {
 			errCNewPass.innerHTML = "";
 			errNewPass.innerHTML = "";
 		}
-	}	
+	}
 
-	if(success){
+	if(!success) {
+		document.getElementById('new_pass_doc').value = "";
+		document.getElementById('cnew_pass_doc').value = "";
+		showNotification("Hay errores en el formulario", "warning");
+	}
+	else {
 		var request = getRequestObject();
 		var data = {
 			"usuario" : txtUsuario,
@@ -109,6 +116,9 @@ function updateDocente() {
 				if(result.indexOf("Error") > -1){
 					showNotification("Hubo un problema, intenta mas tarde", "error");
 				}
+				document.getElementById('new_pass_doc').value = "";
+				document.getElementById('cnew_pass_doc').value = "";
+				document.getElementById('pass_doc').value = "";
 			}
 		};
 
@@ -202,7 +212,10 @@ function registraAlumno() {
 		errCurp.innerHTML = "";
 	}
 
-	if(success){
+	if(!success) {
+		showNotification("Hay errores en el formulario", "warning");
+	}
+	else {
 		var request = getRequestObject();
 		var data = {
 			control : txtNoControl.value,

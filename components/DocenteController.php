@@ -14,8 +14,11 @@ if( isset( $_POST["actualizarDocente"] ) ) {
 
 	if ( $n > 0 )
 		$objeto["pass"] = $objeto["newpass"];
-	else if ( $pass != "" )
+	else if ( $pass != "" ){
+		$objeto["pass"] = "";
+		$objeto["newpass"] = "";
 		echo 'Aviso: Contraseña incorrecta';
+	}
 
 	$docente = new Docente( $id );
 	$docente->attr( $objeto );

@@ -59,9 +59,7 @@
 				<span id="err_url_doc" class="error"></span>
 
 				<label for="certificaciones">Certificaciones:</label>
-				<textarea rows="5" id="certificaciones" name="certificaciones">
-					<?php echo $d->certificaciones;?>
-				</textarea>
+				<textarea rows="5" id="certificaciones" name="certificaciones"><?php echo $d->certificaciones;?></textarea>
 				<span id="err_certi" class="error"></span>
 			</section>
 		</div>
