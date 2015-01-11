@@ -234,3 +234,37 @@ function registraAlumno() {
 		request.send(data);
 	}
 }
+
+function setCalificacion(alumno, profe, materia, txtCal) {
+	var cal = document.getElementById(txtCal).value;
+
+	if(cal < 0 || isNaN(cal)){
+		showNotification("Calificación inválida", "error");
+		return 0;
+	}
+
+	var request = getRequestObject();
+	var data = {
+		"alumno" : alumno,
+		"profe" : profe,
+		"materia" : materia,
+		"cal" : cal
+	};
+
+	request.onreadystatechange = function() {
+		if (request.readyState== 4 && request.status == 200) {
+			var result=request.responseText; 
+			if (result.indexOf("Actualizado") > -1) {
+				showNotification("Actualizado correctamente", "success");
+			}
+			else {
+				showNotification("No se pudo establecer la conexión", "error");
+			}
+		}
+	};
+
+	request.open("POST","components/CalificacionController.php", true);
+	var data="calificacion="+JSON.stringify(data);
+	request.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+	request.send(data);
+}

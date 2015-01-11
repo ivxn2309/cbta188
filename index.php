@@ -22,6 +22,7 @@
 	<script src="js/init.js"></script>
 	<script src="js/script.js"></script>
 	<script src="js/unslider.js"></script>
+	<script src="js/jquery-ui/jquery-ui.js"></script>
 	<script src="js/noty/packaged/jquery.noty.packaged.min.js"></script>
 	<script src="js/db-modifier.js"></script>
 	<script src="js/group-loader.js"></script>
@@ -38,6 +39,7 @@
 	<link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico">
 	<link rel="stylesheet" href="css/slider.css" />
 	<link rel="stylesheet" href="css/animate.css" />
+	<link rel="stylesheet" href="css/jquery-ui/jquery-ui.css" />
 </head>
 <!-- ====================================================================================================== -->
 <body class="index">

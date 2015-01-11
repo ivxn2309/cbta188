@@ -39,7 +39,7 @@
 			</li>
 
 			<li>
-				<a href="#" onclick="loadContent(0, 6, 2);">Editar Calificaciones</a>
+				<a <?php echo 'onclick="loadContent(0, 9, 2, \''.$_SESSION['doc_user'].'\');"';?> href="#">Editar Calificaciones</a>
 			</li>
 			
 			<li class="submenu">

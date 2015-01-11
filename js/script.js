@@ -30,6 +30,9 @@ function loadPartially(page, section, isUser, user){
 		case 8:
 			url = "_pages/grupos.php";
 			break;
+		case 9:
+			url = "_pages/editCalif.php";
+			break;		
 	}
 	$.ajax({
 		type: "POST", 
