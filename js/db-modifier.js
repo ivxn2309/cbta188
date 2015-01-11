@@ -13,8 +13,8 @@ function showNotification(text, type){
 		text: '<center><br>' + text + '<br><br></center>',
 		type: type,
 		layout: 'topRight',
-		dismissQueue: true,
-		timeout: true,
+		timeout: 3000,
+		dismissQueue: true,		
 		maxVisible: 6,
 		animation: {
 			open: 'animated fadeInRight', // Animate.css class names
@@ -238,7 +238,7 @@ function registraAlumno() {
 function setCalificacion(alumno, profe, materia, txtCal) {
 	var cal = document.getElementById(txtCal).value;
 
-	if(cal < 0 || isNaN(cal)){
+	if(cal < 0 || cal > 10 || isNaN(cal)){
 		showNotification("Calificación inválida", "error");
 		return 0;
 	}
@@ -252,7 +252,7 @@ function setCalificacion(alumno, profe, materia, txtCal) {
 	};
 
 	request.onreadystatechange = function() {
-		if (request.readyState== 4 && request.status == 200) {
+		if (request.readyState == 4 && request.status == 200) {
 			var result=request.responseText; 
 			if (result.indexOf("Actualizado") > -1) {
 				showNotification("Actualizado correctamente", "success");
