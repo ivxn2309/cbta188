@@ -75,7 +75,7 @@ class Docente {
     	$nombre = $this->self['nombre'];
     	$pass = $this->self['password'];
         if( $pass !== "" )
-    	   $query = "UPDATE profesor SET nombre = '$nombre', password = '$pass' WHERE id_docente = '$id'";
+    	   $query = "UPDATE profesor SET nombre = '$nombre', password = SHA('$pass') WHERE id_docente = '$id'";
         else
             $query = "UPDATE profesor SET nombre = '$nombre' WHERE id_docente = '$id'";
         echo "<br>Query4: " . $query;

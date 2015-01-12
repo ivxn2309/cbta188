@@ -63,7 +63,7 @@ else if (isset($_POST['docente_user']) && isset($_POST['docente_pass'])){
 	$pass = $_POST["docente_pass"];
 
 	//Checamos si esta en la base de datos
-	$query = "SELECT id_docente FROM profesor WHERE UPPER(id_docente)=UPPER(TRIM('$user')) and password='$pass'";
+	$query = "SELECT id_docente FROM profesor WHERE UPPER(id_docente)=UPPER(TRIM('$user')) and password=SHA('$pass')";
 	$result = query_to_array($query);
 
 	if (!is_null($result)){

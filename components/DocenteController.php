@@ -8,7 +8,7 @@ if( isset( $_POST["actualizarDocente"] ) ) {
 	$id = $objeto["usuario"];
 	$pass = $objeto["pass"];
 
-	$query = "SELECT id_docente FROM profesor WHERE id_docente='$id' AND password='$pass'";
+	$query = "SELECT id_docente FROM profesor WHERE id_docente='$id' AND password=SHA('$pass')";
 	$result = mysql_query( $query );
 	$n = mysql_num_rows( $result );
 
