@@ -26,6 +26,7 @@
 	<script src="js/noty/packaged/jquery.noty.packaged.min.js"></script>
 	<script src="js/db-modifier.js"></script>
 	<script src="js/group-loader.js"></script>
+	<script src="js/jquery.bpopup.min.js"></script>
 
 	<noscript>
 		<link rel="stylesheet" href="css/skel.css" />
@@ -33,6 +34,7 @@
 		<link rel="stylesheet" href="css/style-wide.css" />
 		<link rel="stylesheet" href="css/style-noscript.css" />
 	</noscript>
+	
 	<!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
 	<!--[if lte IE 9]><link rel="stylesheet" href="css/ie/v9.css" /><![endif]-->
 	<title>.: C.B.T.a. 188 :.</title>
@@ -95,8 +97,10 @@
 	<!-- Footer -->
 	<footer id="footer">	
 		<ul class="icons">
-			<li><a href="#" class="icon circle fa-twitter"><span class="label">Twitter</span></a></li>
-			<li><a href="#" class="icon circle fa-facebook"><span class="label">Facebook</span></a></li>
+			<li><a href="https://twitter.com/hashtag/cbta" class="icon circle fa-twitter"><span class="label">Twitter</span></a></li>
+			<li><a href="https://www.facebook.com/pages/CBTa-No-188/254091751393709" class="icon circle fa-facebook">
+				<span class="label">Facebook</span>
+			</a></li>
 			<li><a href="#" class="icon circle fa-google-plus"><span class="label">Google+</span></a></li>
 		</ul>
 		

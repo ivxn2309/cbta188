@@ -22,6 +22,11 @@ $grp = $g->getGroup($clave);
 			<td style="text-align:left;padding-left:10px;"><?php echo $alumnos[$i][1]; ?></td>
 		</tr>
 	<?php endfor;?>
+	<?php if( $amount == 0 ): ?>
+		<tr>
+			<td colspan="2">No hay alumnos registrados en este grupo</td>
+		</tr>
+	<?php endif; ?>
 </table>
 
 <style type="text/css">

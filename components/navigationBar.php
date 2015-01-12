@@ -7,17 +7,16 @@
 		</li>
 
 		<li>
-			<a href="#" onclick="loadContent(0, 8, 1);">Horarios</a>
+			<a <?php echo 'onclick="loadContent(0, 11, 1, \''.$_SESSION['nocontrol'].'\');"';?> href="#">Mis materias</a>
 		</li>
 
 		<li>
-			<a href="#" onclick="loadContent(0, 9, 1);">Calificaciones</a>
+			<a <?php echo 'onclick="loadContent(0, 12, 1, \''.$_SESSION['nocontrol'].'\');"';?> href="#">Calificaciones</a>
 		</li>
 		
 		<li class="submenu">
 			<a href="#"><?php echo $_SESSION['email'];?></a>
 			<ul>
-				<li><a href="#" onclick="loadContent(0, 10, 2);">Editar Perfil</a></li>
 				<li><a href="#" id="cerrar" onclick="closeSession();">Cerrar Sesión</a></li>
 			</ul>
 		</li>
@@ -35,7 +34,11 @@
 			</li>
 
 			<li>
-				<a href="#" onclick="loadContent(0, 8, 2);">Ver Grupos</a>
+				<a href="#" onclick="loadContent(0, 8, 2);">Todos los Grupos</a>
+			</li>
+
+			<li>
+				<a <?php echo 'onclick="loadContent(0, 10, 2, \''.$_SESSION['doc_user'].'\');"';?> href="#">Mis Materias</a>
 			</li>
 
 			<li>

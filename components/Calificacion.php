@@ -32,4 +32,20 @@ class Calificacion {
 		}
 		return -1;
 	}
+
+	public function getAllOf( $id ) {
+		$query = "SELECT alumno, materia, docente, calificacion FROM calificaciones WHERE alumno='$id' AND calificacion>-1";
+		$result = mysql_query($query);
+		if(!$result) return 0;
+		$n = mysql_num_rows($result);
+		$califs = array();
+		for($i = 0; $i < $n; $i++) {
+			$row = mysql_fetch_row($result);
+			$califs[$i][0] = $row[0];
+			$califs[$i][1] = $row[1];
+			$califs[$i][2] = $row[2];
+			$califs[$i][3] = $row[3];
+		}
+		return $califs;
+	}
 }

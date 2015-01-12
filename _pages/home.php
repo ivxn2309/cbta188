@@ -6,31 +6,51 @@
 				<h2></h2>
 				<div class="slider has-dots" style="overflow: hidden; width: 100%; height: 415px;">
 					<ul style="width: 400%; position: relative; left: 0%; height: 415px;">
-						<li style="width: 25%; background-image: url(http://unslider.com/img/sunset.jpg); background-size: 100% 100%;">
-							<h1>The jQuery slider that just slides.</h1>
-							<p>No fancy effects or unnecessary markup, and it’s less than 3kb.</p>
-							
+						<li style="width: 25%; background-image: url(images/main_slideshow/1.png); background-size: 100% 100%;">
+							<h1>Instalaciones vistosas.</h1>
+							<p>...</p>						
 							<a class="btn scrolly" href="#info">¿Qué es CBTa?</a>
 						</li>
 						
-						<li style="width: 25%; background-image: url(http://unslider.com/img/wood.jpg); background-size: 100% 100%;">
-							<h1>Fluid, flexible, fantastically minimal.</h1>
-							<p>Use any HTML in your slides, extend with CSS. You have full control.</p>
-							
-							<a class="btn scrolly" href="#info">Información</a>
+						<li style="width: 25%; background-image: url(images/main_slideshow/2.jpg); background-size: 100% 100%;">
+							<h1>C.B.T.a. N° 188</h1>
+							<p>...</p>			
+							<a class="btn scrolly" href="#info">¿Qué es CBTa?</a>										
 						</li>
 						
-						<li style="width: 25%; background-image: url(http://unslider.com/img/subway.jpg); background-size: 100% 100%;">
-							<h1>Open-source.</h1>
-							<p>Everything to do with Unslider is hosted on GitHub.</p>
-							
+						<li style="width: 25%; background-image: url(images/main_slideshow/3.jpg); background-size: 100% 100%;">
+							<h1>Alta Tecnología.</h1>
+							<p style="color:black">Éste plantel cuenta con el sistema de riego más grande del estado.</p>							
 							<a class="btn scrolly" href="#cta">Contacto</a>
 						</li>
 						
-						<li style="width: 25%; background-image: url(http://unslider.com/img/shop.jpg); background-size: 100% 100%;">
-							<h1>Uh, that’s about it.</h1>
-							<p>I just wanted to show you another slide.</p>							
+						<li style="width: 25%; background-image: url(images/main_slideshow/4.jpg); background-size: 100% 100%;">
+							<h1>Eventos culturales.</h1>
+							<p>...</p>		
+							<a class="btn scrolly" href="#info">Información</a>
+						</li>
+
+						<li style="width: 25%; background-image: url(images/main_slideshow/5.jpg); background-size: 100% 100%;">
+							<h1>Áreas verdes.</h1>
+							<p style="color:white"><b>Siempre preocupados por el ecosistema.</b></p>							
 							<a class="btn scrolly" href="#info">Dime más</a>
+						</li>
+
+						<li style="width: 25%; background-image: url(images/main_slideshow/6.jpg); background-size: 100% 100%;">
+							<h1>Aulas multi-propósito.</h1>
+							<p style="color:white"><b>Contamos con infraestructura de última generación.</b></p>							
+							<a class="btn scrolly" href="#info">Dime más</a>
+						</li>
+
+						<li style="width: 25%; background-image: url(images/main_slideshow/7.jpg); background-size: 100% 100%;">
+							<h1 style="color:black">Centros de computo.</h1>
+							<p style="color:black">Los mejores equipos para nuestros mejores alumnos.</p>
+							<a class="btn scrolly" href="#info">Dime más</a>
+						</li>
+
+						<li style="width: 25%; background-image: url(images/main_slideshow/8.jpg); background-size: 100% 100%;">
+							<h1>Ven y conocenos.</h1>							
+							<a class="btn scrolly" href="#cta">Contacto</a>
 						</li>
 					</ul>
 				</div>
@@ -65,8 +85,8 @@
 $(document).ready(function(){
 
 	$('.slider').unslider({
-		speed: 500,               //  The speed to animate each slide (in milliseconds)
-		delay: 2000,              //  The delay between slide animations (in milliseconds)
+		speed: 200,               //  The speed to animate each slide (in milliseconds)
+		delay: 4000,              //  The delay between slide animations (in milliseconds)
 		keys: true,               //  Enable keyboard (left, right) arrow shortcuts
 		dots: true,              //  Display dot navigation
 		fluid: true              //  Support responsive design. May break non-responsive designs

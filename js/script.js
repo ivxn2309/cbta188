@@ -32,7 +32,16 @@ function loadPartially(page, section, isUser, user){
 			break;
 		case 9:
 			url = "_pages/editCalif.php";
-			break;		
+			break;
+		case 10:
+			url = "_pages/misMaterias.php";
+			break;	
+		case 11:
+			url = "_pages/horarios.php";
+			break;	
+		case 12:
+			url = "_pages/calificaciones.php";
+			break;	
 	}
 	$.ajax({
 		type: "POST", 
@@ -65,6 +74,18 @@ function loadListPDF(section, cls, grp, usr){
 		},
 		success: function(datos){
 			$(section).html(datos);
+		}
+	});
+}
+
+function loadTeacherProfile(prof){
+	$.ajax({
+		type: "POST", 
+		url: "_pages/teacher.php",
+		data:{"doc":prof},
+		success: function(datos){
+			$('#element_to_pop_up').html(datos);
+			$('#element_to_pop_up').bPopup();
 		}
 	});
 }
