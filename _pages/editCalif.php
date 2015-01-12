@@ -13,7 +13,7 @@ $cal = new Calificacion();
 ?>
 
 <?php for($i = 0; $i < $n; $i++): ?>
-<section id="forms" class="wrapper style1 container special shadow3">
+<section class="wrapper style1 container special shadow3">
 	<header>
 		<h1>
 			<?php echo $h->getClassName($clases[$i][0]);?>
@@ -58,6 +58,8 @@ $cal = new Calificacion();
 	<div>
 		<div class="12u special">
 			<section>
+				<?php $onclick="loadListPDF('#main', '".$clases[$i][0]."', '".$clases[$i][1]."', '".$user."');"; ?>
+				<a class="button" onclick=<?php echo '"'.$onclick.'"'?> href="#">Generar PDF</a>
 				<a class="button" href="">Imprimir</a>
 			</section>
 		</div>

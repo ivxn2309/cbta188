@@ -53,6 +53,22 @@ function loadContent(banner, main, isUser, user){
 	loadPartially(main, "#main", isUser, user);
 }
 
+function loadListPDF(section, cls, grp, usr){
+	var url = "_pages/pdf.php";
+	$.ajax({
+		type: "POST", 
+		url: url,
+		data:{
+			"cls":cls,
+			"usr":usr,
+			"grp":grp
+		},
+		success: function(datos){
+			$(section).html(datos);
+		}
+	});
+}
+
 // Vaildacion de credenciales ============================
 function validaDocente() {
 	var txtUser = document.getElementById("docente_user");
