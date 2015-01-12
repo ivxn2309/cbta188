@@ -97,7 +97,9 @@
 	<!-- Footer -->
 	<footer id="footer">	
 		<ul class="icons">
-			<li><a href="https://twitter.com/hashtag/cbta" class="icon circle fa-twitter"><span class="label">Twitter</span></a></li>
+			<li><a href="https://twitter.com/hashtag/cbta" class="icon circle fa-twitter">
+				<span class="label">Twitter</span>
+			</a></li>
 			<li><a href="https://www.facebook.com/pages/CBTa-No-188/254091751393709" class="icon circle fa-facebook">
 				<span class="label">Facebook</span>
 			</a></li>
