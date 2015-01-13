@@ -43,6 +43,7 @@ function loadPartially(page, section, isUser, user){
 			url = "_pages/calificaciones.php";
 			break;	
 	}
+	if(user) user = user.trim();
 	$.ajax({
 		type: "POST", 
 		url: url,
