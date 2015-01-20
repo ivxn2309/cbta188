@@ -248,12 +248,19 @@ function registraAlumno() {
 	}
 }
 
+function guardaCalificaciones(tabla, lim){
+	for (var i = 0; i < lim; i++) {
+		var obj = "setCalif" + tabla + "-" + i;
+		document.getElementById(obj).click();
+	};
+}
+
 function setCalificacion(alumno, profe, materia, txtCal) {
 	var cal = document.getElementById(txtCal).value;
 
-	if(cal < 0 || cal > 10 || isNaN(cal)){
-		showNotification("Calificación inválida", "error");
-		return 0;
+	if(cal < 5 || cal > 10 || isNaN(cal)){
+		showNotification("Calificación inválida para " + alumno, "error");
+		return -1;
 	}
 
 	var request = getRequestObject();
@@ -268,7 +275,7 @@ function setCalificacion(alumno, profe, materia, txtCal) {
 		if (request.readyState == 4 && request.status == 200) {
 			var result=request.responseText; 
 			if (result.indexOf("Actualizado") > -1) {
-				showNotification("Actualizado correctamente", "success");
+				showNotification(alumno + " Actualizado correctamente ", "success");
 			}
 			else {
 				showNotification("No se pudo establecer la conexión", "error");

@@ -47,7 +47,7 @@ $cal = new Calificacion();
 								<input <?php echo "id='txtCal".$j."' value='".$cal->getCalificacion($alumnos[$j][0], $clases[$i][0], $user)."'"; ?> type="number" >
 							</td>
 							<td>
-								<button class="button" <?php echo "onclick='setCalificacion(\"".$alumnos[$j][0]."\", \"".$user."\", \"".$clases[$i][0]."\", \"txtCal".$j."\");'"; ?> href="">Guardar</button>
+								<button style="display:none;" class="button" <?php echo "id='setCalif".$i."-".$j."' onclick='setCalificacion(\"".$alumnos[$j][0]."\", \"".$user."\", \"".$clases[$i][0]."\", \"txtCal".$j."\");'"; ?> href="">Guardar</button>
 							</td>
 						</tr>
 					<?php endfor;?>
@@ -58,9 +58,9 @@ $cal = new Calificacion();
 	<div>
 		<div class="12u special">
 			<section>
+				<a href=<?php echo '"javascript:guardaCalificaciones('.$i.','.$j.')"';?> class="button">Guardar</a>
 				<?php $onclick="loadListPDF('#main', '".$clases[$i][0]."', '".$clases[$i][1]."', '".$user."');"; ?>
-				<a class="button" onclick=<?php echo '"'.$onclick.'"'?> href="#">Generar PDF</a>
-				<a class="button" href="">Imprimir</a>
+				<a class="button" onclick=<?php echo '"'.$onclick.'"'?> href="#">Generar PDF para Imprimir</a>
 			</section>
 		</div>
 	</div>

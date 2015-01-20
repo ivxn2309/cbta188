@@ -50,7 +50,7 @@
 			<li class="submenu">
 				<a href=""><?php echo $_SESSION['doc_user'];?></a>
 				<ul>
-					<li><a <?php echo 'href="loadContent(0, 7, 2, \''.$_SESSION['doc_user'].'\');"';?> >Editar Perfil</a></li>
+					<li><a <?php echo 'href="javascript:loadContent(0, 7, 2, \''.$_SESSION['doc_user'].'\');"';?> >Editar Perfil</a></li>
 					<li><a href="#" id="cerrar" onclick="closeSession();">Cerrar Sesión</a></li>
 				</ul>
 			</li>
